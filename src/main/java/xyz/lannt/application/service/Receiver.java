@@ -1,4 +1,4 @@
-package xyz.lannt.application;
+package xyz.lannt.application.service;
 
 import java.util.concurrent.CountDownLatch;
 

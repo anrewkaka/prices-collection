@@ -13,8 +13,8 @@ import org.springframework.context.ApplicationContext;
 
 import reactor.Environment;
 import reactor.bus.EventBus;
-import xyz.lannt.application.Publisher;
-import xyz.lannt.application.Receiver;
+import xyz.lannt.application.service.Publisher;
+import xyz.lannt.application.service.Receiver;
 
 @SpringBootApplication
 public class PricesCollectionApplication implements CommandLineRunner {
