@@ -1,0 +1,5 @@
+data-collector:
+  # 999 for non-stop
+  size: 999
+  # milisecond
+  delay: 2000
