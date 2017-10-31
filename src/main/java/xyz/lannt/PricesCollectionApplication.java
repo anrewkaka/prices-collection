@@ -1,4 +1,4 @@
-package xyz.lannt.task;
+package xyz.lannt;
 
 import static reactor.bus.selector.Selectors.$;
 
@@ -13,15 +13,11 @@ import org.springframework.context.ApplicationContext;
 
 import reactor.Environment;
 import reactor.bus.EventBus;
-import xyz.lannt.task.application.Publisher;
-import xyz.lannt.task.application.Receiver;
-import xyz.lannt.task.application.property.DataCollectorProperty;
+import xyz.lannt.application.Publisher;
+import xyz.lannt.application.Receiver;
 
 @SpringBootApplication
 public class PricesCollectionApplication implements CommandLineRunner {
-
-  @Autowired
-  private DataCollectorProperty property;
 
   @Autowired
   private EventBus eventBus;
@@ -35,7 +31,7 @@ public class PricesCollectionApplication implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     eventBus.on($("quotes"), receiver);
-    publisher.publish(property.getSize());
+    publisher.publish();
   }
 
   public static void main(String[] args) throws InterruptedException {
