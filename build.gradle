@@ -40,14 +40,15 @@ test {
 }
 
 dependencies {
+  compile ('xyz.lannt:market-client-autoconfig:0.0.1-SNAPSHOT') { exclude group: 'xyz.lannt', module: 'market-client' }
   compile(
     'org.springframework.boot:spring-boot-starter',
     'org.springframework.boot:spring-boot-starter-data-redis',
     'org.springframework:spring-web',
     'org.projectlombok:lombok:1.16.18',
     'io.projectreactor:reactor-bus',
-    
-    'xyz.lannt:market-client:0.0.1-SNAPSHOT',
+
+    'xyz.lannt:market-client:1.0.1-SNAPSHOT',
   )
 }
 
