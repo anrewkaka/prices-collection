@@ -30,7 +30,7 @@ public class PricesCollectionApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    eventBus.on($("quotes"), receiver);
+    eventBus.on($("price-collector"), receiver);
     publisher.publish();
   }
 

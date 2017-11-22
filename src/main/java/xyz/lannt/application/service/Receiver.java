@@ -7,16 +7,20 @@ import org.springframework.stereotype.Service;
 
 import reactor.bus.Event;
 import reactor.fn.Consumer;
+import xyz.lannt.domain.model.MarketSummaries;
 
 @Service
-public class Receiver implements Consumer<Event<Integer>> {
+public class Receiver implements Consumer<Event<MarketSummaries>> {
 
-  @Autowired
-  CountDownLatch latch;
+    @Autowired
+    CountDownLatch latch;
 
-  @Override
-  public void accept(Event<Integer> ev) {
-    System.err.println(this.getClass().getName() + ": " + ev.getData());
-    latch.countDown();
-  }
+    @Autowired
+    private MarketSummaryService marketSummaryService;
+
+    @Override
+    public void accept(Event<MarketSummaries> event) {
+        this.marketSummaryService.save(event.getData());
+        latch.countDown();
+    }
 }

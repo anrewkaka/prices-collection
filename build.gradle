@@ -48,7 +48,7 @@ dependencies {
     'io.projectreactor:reactor-bus',
 
     'mysql:mysql-connector-java:6.0.6',
-    'org.seasar.doma:doma:2.17.0',
+    'org.seasar.doma.boot:doma-spring-boot-starter:1.0.1',
 
     'xyz.lannt:market-client:1.0.1-SNAPSHOT',
   )

@@ -21,10 +21,13 @@ public class Publisher {
   @Autowired
   CountDownLatch countDownLatch;
 
+  @Autowired
+  private MarketSummaryService marketSummaryService;
+
   public void publish() throws InterruptedException {
     while(true) {
       Thread.sleep(property.getDelay());
-      eventBus.notify("quotes", Event.wrap(null));
+      eventBus.notify("price-collector", Event.wrap(marketSummaryService.get()));
     }
   }
 }
