@@ -1,0 +1,25 @@
+version: "3"
+services:
+  chart:
+    image: lanntxyz/prices-collector:latest
+    ports:
+      - 80:8080
+    volumes:
+      - ../build/libs:/opt/prices-collector
+      - ../../config:/opt/prices-collector/resources
+    entrypoint: java -jar -Dspring.config.location=/opt/prices-collector/resources/application.yml /opt/prices-collector/prices-collector-0.0.1-SNAPSHOT.jar
+  db:
+   image: mysql:latest
+   restart: always
+   environment:
+     - MYSQL_ROOT_PASSWORD:123456
+     - MYSQL_DATABASE:develop
+     - MYSQL_USER:develop
+     - MYSQL_PASSWORD:123456
+   volumes:
+     - /data:/var/lib/mysql
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
