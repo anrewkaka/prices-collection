@@ -4,16 +4,11 @@ import java.time.LocalDateTime;
 
 import org.seasar.doma.Column;
 import org.seasar.doma.Entity;
-import org.seasar.doma.Id;
 import org.seasar.doma.Table;
 
 @Entity
 @Table(name = "MarketSummaries")
 public class MarketSummaryEntity {
-
-  @Id
-  @Column(name = "ID")
-  public Integer id;
 
   @Column(name = "MarketName")
   public String name;
