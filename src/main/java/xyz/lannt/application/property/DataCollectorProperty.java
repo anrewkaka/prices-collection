@@ -4,6 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
+import xyz.lannt.domain.model.MarketNames;
 
 @Data
 @Component
@@ -13,4 +14,6 @@ public class DataCollectorProperty {
   private int size;
 
   private int delay;
+
+  private MarketNames target;
 }

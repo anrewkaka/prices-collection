@@ -3,6 +3,7 @@ package xyz.lannt.application.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import xyz.lannt.application.property.DataCollectorProperty;
 import xyz.lannt.constant.Market;
 import xyz.lannt.domain.model.MarketSummaries;
 import xyz.lannt.infrastructure.repository.MarketSummaryRepository;
@@ -18,14 +19,19 @@ public class MarketSummaryService {
   @Autowired
   private MarketSummaryRepository marketSummaryRepository;
 
+  @Autowired
+  private DataCollectorProperty dataCollectorProperty;
+
   public MarketSummaries get() {
     return MarketSummaries.fromResponse(
         (BittrexMarketSummariesResponse) marketClientFactory.getClient(Market.BITTREX).getMarketSummaries());
   }
 
   public void save(MarketSummaries marketSummaries) {
-    marketSummaries.stream().forEach(e -> {
-      this.marketSummaryRepository.save(e.toEntity());
-    });
+    marketSummaries.find(dataCollectorProperty.getTarget()).stream()
+      .distinct()
+      .forEach(e -> {
+        this.marketSummaryRepository.save(e.toEntity());
+      });
   }
 }

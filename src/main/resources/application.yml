@@ -25,3 +25,5 @@ data-collector:
   size: 998
   # milisecond
   delay: 500
+  # target market
+  target: USDT-BTC, USDT-BCC, USDT-ETC, USDT-ETH, USDT-XRP, USDT-BTG, USDT-NEO, USDT-LTC, USDT-OMG, USDT-ZEC, USDT-XMR, USDT-DASH

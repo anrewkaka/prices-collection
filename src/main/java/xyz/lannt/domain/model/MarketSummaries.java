@@ -28,6 +28,12 @@ public class MarketSummaries {
     return values.stream().filter(e -> StringUtils.equals(e.getName().toString(), market)).findFirst();
   }
 
+  public MarketSummaries find(MarketNames marketNames) {
+    return values.stream()
+        .filter(e -> marketNames.contains(e.getName().toString()))
+        .collect(collectingAndThen(toList(), MarketSummaries::new));
+  }
+
   public List<MarketSummaryEntity> toEntities() {
     return this.values.stream()
         .map(MarketSummary::toEntity)
