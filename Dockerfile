@@ -5,7 +5,7 @@ EXPOSE 80 443
 VOLUME ["/opt/prices-collector", "/opt/script", "/bin/bash"]
 
 # add jar to docker
-ADD ./script /opt/script
+# ADD ./script /opt/script
 
 # set environment variable
 # ENV JAVA_OPTS=""
