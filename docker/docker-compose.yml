@@ -1,7 +1,7 @@
 version: "3"
 services:
   chart:
-    image: lanntxyz/prices-collector:latest
+    image: lanntxyz/docker-prices-collector:latest
     ports:
       - 80:8080
     volumes:
