@@ -31,6 +31,8 @@ public class MarketSummaryService {
     marketSummaries.find(dataCollectorProperty.getTarget()).stream()
       .distinct()
       .forEach(e -> {
+        // TODO: bittrex:1
+        e.setExchangeId(1);
         this.marketSummaryRepository.save(e.toEntity());
       });
   }

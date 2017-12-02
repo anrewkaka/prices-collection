@@ -2,6 +2,7 @@ package xyz.lannt.domain.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import xyz.lannt.annotation.MarketResponseName;
 import xyz.lannt.domain.vo.CryptoText;
 import xyz.lannt.domain.vo.CryptoTimestamp;
@@ -11,6 +12,10 @@ import xyz.lannt.market.response.bittrex.BittrexResult;
 
 @NoArgsConstructor
 public class MarketSummary {
+
+  @Getter
+  @Setter
+  private int exchangeId;
 
   @Getter
   @MarketResponseName("MarketName")
@@ -64,6 +69,7 @@ public class MarketSummary {
 
   public MarketSummaryEntity toEntity() {
     MarketSummaryEntity entity = new MarketSummaryEntity();
+    entity.exchangeId = this.exchangeId;
     entity.name = this.name.toString();
     entity.hight = this.hight.doubleValue();
     entity.low = this.low.doubleValue();

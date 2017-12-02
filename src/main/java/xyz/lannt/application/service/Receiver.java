@@ -12,15 +12,15 @@ import xyz.lannt.domain.model.MarketSummaries;
 @Service
 public class Receiver implements Consumer<Event<MarketSummaries>> {
 
-    @Autowired
-    CountDownLatch latch;
+  @Autowired
+  CountDownLatch latch;
 
-    @Autowired
-    private MarketSummaryService marketSummaryService;
+  @Autowired
+  private MarketSummaryService marketSummaryService;
 
-    @Override
-    public void accept(Event<MarketSummaries> event) {
-        this.marketSummaryService.save(event.getData());
-        latch.countDown();
-    }
+  @Override
+  public void accept(Event<MarketSummaries> event) {
+    this.marketSummaryService.save(event.getData());
+    latch.countDown();
+  }
 }
