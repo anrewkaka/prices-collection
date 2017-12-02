@@ -10,6 +10,9 @@ import org.seasar.doma.Table;
 @Table(name = "MarketSummaries")
 public class MarketSummaryEntity {
 
+  @Column(name = "ExchangeID")
+  public int exchangeId;
+
   @Column(name = "MarketName")
   public String name;
 
