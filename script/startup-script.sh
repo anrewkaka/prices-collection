@@ -8,7 +8,7 @@ if [ ! -d "~/market-client-autoconfig" ]; then
 fi
 
 if [ ! -d "~/prices-collector" ]; then
-  git clone https://github.com/anrewkaka/prices-collector.git -b 'prices-collection-implement' ~/prices-collector
+  git clone https://github.com/anrewkaka/prices-collector.git -b 'develop' ~/prices-collector
 fi
 
 # publish market-client library
@@ -33,7 +33,7 @@ chmod +x gradlew
 cd ~/prices-collector
 git reset --hard
 git clean -f
-git checkout prices-collection-implement
+git checkout develop
 git pull
 chmod +x gradlew
 ./gradlew clean build
