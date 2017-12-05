@@ -21,8 +21,6 @@ bittrex:
   devMode: false
 
 data-collector:
-  # 999 for non-stop
-  size: 998
   # milisecond
   delay: 500
   # target market

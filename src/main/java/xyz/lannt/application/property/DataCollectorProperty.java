@@ -11,8 +11,6 @@ import xyz.lannt.domain.model.MarketNames;
 @ConfigurationProperties(prefix = "data-collector")
 public class DataCollectorProperty {
 
-  private int size;
-
   private int delay;
 
   private MarketNames target;

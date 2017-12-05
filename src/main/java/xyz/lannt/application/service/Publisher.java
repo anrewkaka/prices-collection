@@ -1,7 +1,5 @@
 package xyz.lannt.application.service;
 
-import java.util.concurrent.CountDownLatch;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +15,6 @@ public class Publisher {
 
   @Autowired
   EventBus eventBus;
-
-  @Autowired
-  CountDownLatch countDownLatch;
 
   @Autowired
   private MarketSummaryService marketSummaryService;

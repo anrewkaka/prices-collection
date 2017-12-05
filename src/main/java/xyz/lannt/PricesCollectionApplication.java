@@ -2,9 +2,6 @@ package xyz.lannt;
 
 import static reactor.bus.selector.Selectors.$;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -36,7 +33,6 @@ public class PricesCollectionApplication implements CommandLineRunner {
 
   public static void main(String[] args) throws InterruptedException {
     ApplicationContext app = SpringApplication.run(PricesCollectionApplication.class, args);
-    app.getBean(CountDownLatch.class).await(5, TimeUnit.SECONDS);
     app.getBean(Environment.class).shutdown();
   }
 }
