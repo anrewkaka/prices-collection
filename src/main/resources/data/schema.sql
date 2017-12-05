@@ -1,10 +1,10 @@
-CREATE TABLE `develop`.`exchanges` (
+CREATE TABLE `develop`.`Exchanges` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(45) NULL,
   `DisplayName` VARCHAR(45) NULL,
   PRIMARY KEY (`ID`));
 
-CREATE TABLE `develop`.`marketsummaries` (
+CREATE TABLE `develop`.`MarketSummaries` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `ExchangeID` INT NOT NULL,
   `MarketName` VARCHAR(45) NULL,
