@@ -37,6 +37,7 @@ public class MarketSummary {
   @MarketResponseName("BaseVolume")
   private CryptoValue baseVolume;
 
+  @Getter
   @MarketResponseName("TimeStamp")
   private CryptoTimestamp timestamp;
 
@@ -86,5 +87,9 @@ public class MarketSummary {
     entity.displayMarketName = this.displayMarketName.toString();
 
     return entity;
+  }
+
+  public void truncateTimestamp() {
+    this.timestamp = this.timestamp.truncateMilisecond();
   }
 }

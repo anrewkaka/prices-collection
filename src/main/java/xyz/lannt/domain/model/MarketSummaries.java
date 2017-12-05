@@ -34,6 +34,12 @@ public class MarketSummaries {
         .collect(collectingAndThen(toList(), MarketSummaries::new));
   }
 
+  public MarketSummaries truncateTimestamp() {
+    return values.stream()
+        .peek(MarketSummary::truncateTimestamp)
+        .collect(collectingAndThen(toList(), MarketSummaries::new));
+  }
+
   public List<MarketSummaryEntity> toEntities() {
     return this.values.stream()
         .map(MarketSummary::toEntity)

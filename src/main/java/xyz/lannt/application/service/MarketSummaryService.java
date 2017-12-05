@@ -28,7 +28,9 @@ public class MarketSummaryService {
   }
 
   public void save(MarketSummaries marketSummaries) {
-    marketSummaries.find(dataCollectorProperty.getTarget()).stream()
+    marketSummaries.find(dataCollectorProperty.getTarget())
+      .truncateTimestamp()
+      .stream()
       .distinct()
       .forEach(e -> {
         // TODO: bittrex:1
