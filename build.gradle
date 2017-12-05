@@ -1,0 +1,76 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'xyz.lannt'
+version = "$version_application"
+sourceCompatibility = 1.8
+
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+jar {
+  baseName = "$project_name"
+  version = "$version"
+}
+
+repositories {
+  mavenCentral()
+  mavenLocal()
+}
+
+javadoc {
+    options.encoding = "$source_encoding"
+    options.docEncoding = "$source_encoding"
+    options.charSet = "$source_encoding"
+}
+
+test {
+    systemProperty "file.encoding", "$source_encoding"
+}
+
+dependencies {
+  compile ('xyz.lannt:market-client-autoconfig:0.0.1-SNAPSHOT') { exclude group: 'xyz.lannt', module: 'market-client' }
+  compile(
+    'org.springframework.boot:spring-boot-starter',
+    'org.springframework:spring-web',
+    'org.projectlombok:lombok:1.16.18',
+    'io.projectreactor:reactor-bus',
+
+    'mysql:mysql-connector-java:6.0.6',
+    "org.seasar.doma.boot:doma-spring-boot-starter:1.0.2",
+
+    'xyz.lannt:market-client:1.0.2-SNAPSHOT',
+  )
+}
+
+sourceSets {
+  main {
+    java {
+      srcDirs = ['src/main/java']
+    }
+    resources {
+      srcDirs = ['src/main/resources']
+    }
+  }
+  test {
+    java {
+      srcDirs = ['src/test/java']
+    }
+    resources {
+      srcDirs = ['src/test/resources']
+    }
+  }
+}
+
+apply from: 'tasks/eclipse.gradle'

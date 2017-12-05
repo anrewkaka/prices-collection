@@ -1,0 +1,10 @@
+version: "3"
+services:
+  prices-collector:
+    image: lanntxyz/docker-prices-collector:latest
+    ports:
+      - 80:8080
+    volumes:
+      - ../build/libs:/opt/prices-collector
+      - /opt/prices-collector/config:/opt/prices-collector/resources
+    entrypoint: java -jar -Dspring.config.location=/opt/prices-collector/resources/application.yml /opt/prices-collector/prices-collector-0.0.1-SNAPSHOT.jar
