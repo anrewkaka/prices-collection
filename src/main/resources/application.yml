@@ -1,27 +1,17 @@
+server:
+  port: 8080
+
 # DB
 spring:
   application:
     name: prices-collector
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/develop?useSSL=false
-    username: develop
-    password: 123456
+    url: jdbc:mysql://192.168.1.59:3307/sys?useSSL=false
+    username: root
+    password: Abc12345@rk
 
 # DOMA
 doma:
   dialect: MYSQL
   naming: SNAKE_LOWER_CASE
-
-# MARKET
-bittrex:
-  baseUrl: https://bittrex.com/api/v1.1/
-  apiKey: 16dd768cc7584c73b0e54c4c7b7eca94
-  secret: f4a4b8c6498240ba8966cb11e7dab9c8
-  devMode: false
-
-data-collector:
-  # milisecond
-  delay: 500
-  # target market
-  target: USDT-BTC, USDT-BCC, USDT-ETC, USDT-ETH, USDT-XRP, USDT-BTG, USDT-NEO, USDT-LTC, USDT-OMG, USDT-ZEC, USDT-XMR, USDT-DASH
